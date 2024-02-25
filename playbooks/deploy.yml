@@ -1,0 +1,21 @@
+---
+- name: Clone and run Dockerized project
+  hosts: localhost
+  connection: local
+  become: yes  # Run tasks as a privileged user (sudo)
+
+  tasks:
+    - name: Clone the GitHub repository
+      git:
+        repo: https://github.com/techwithks/assignment.git
+        dest: /home/ksudarshan944/assignment
+        accept_hostkey: yes  # Optional: Allows accepting the GitHub host key
+
+    - name: Change ownership of the project directory
+      become: yes
+      command: "chown -R ksudarshan944:ksudarshan944 /home/ksudarshan944/assignment"
+
+    - name: Build and run Docker container
+      command: "docker-compose up -d"
+      args:
+        chdir: /home/ksudarshan944/assignment
