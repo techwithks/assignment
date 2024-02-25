@@ -30,3 +30,8 @@ cd assignment
 ```bash
 docker-compose up --build
 ```
+
+### Video URL for 4.0v
+[Watch Ansible playbook execution on YouTube](https://youtu.be/u4nqbi8ct0E)
+
+Check the video link above for the 4.0v submission.
